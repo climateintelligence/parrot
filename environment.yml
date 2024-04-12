@@ -5,9 +5,18 @@ channels:
 dependencies:
 - pip
 - python>=3.8,<3.12
-- pywps>=4.5.1,<4.6
+- pywps>=4.5.2,<4.7
 - jinja2
 - click
 - psutil
 # tests
 - pytest
+# provenance
+- prov>=2.0.0
+- pydot
+- graphviz
+- rdflib
+- rdflib-sqlalchemy
+- sqlalchemy<2
+- pandas
+- pyyaml
