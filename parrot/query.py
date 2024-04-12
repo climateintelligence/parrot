@@ -1,4 +1,4 @@
-from duck.db import GraphDB
+from parrot.db import GraphDB
 import pandas as pd
 import json
 import yaml
