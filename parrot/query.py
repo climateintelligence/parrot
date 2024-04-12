@@ -17,7 +17,7 @@ def display_json(data):
 
 def query():
     query_str = """
-        SELECT ?process ?dataset ?variable ?startTime ?endTime ?input ?output ?info ?histogram
+        SELECT ?process ?dataset ?variable ?startTime ?endTime ?input ?output ?info
         WHERE {
             ?exec rdf:type provone:Execution ;
                 rdfs:label ?process ;
@@ -25,8 +25,7 @@ def query():
                 clint:variable_name ?variable ;
                 prov:startedAtTime ?startTime ;
                 prov:endedAtTime ?endTime ;
-                clint:info ?info ;
-                clint:histogram ?histogram .
+                clint:info ?info .
 
             ?input rdf:type prov:Entity .
 
@@ -54,7 +53,7 @@ def query():
         # mean = row.mean.value
         # stddev = row.stddev.value
         info = json.loads(row.info.value)
-        histogram = row.histogram.value
+        # histogram = row.histogram.value
         entry = {
             "Process": process,
             "Dataset": dataset,
@@ -67,7 +66,7 @@ def query():
             # "Max": max,
             # "Mean": mean,
             # "StdDev": stddev,
-            "Histogram": display_image(histogram),
+            # "Histogram": display_image(histogram),
         }
         for key in info:
             entry[key] = display_json(info[key])
